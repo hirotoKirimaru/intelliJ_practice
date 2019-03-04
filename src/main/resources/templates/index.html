@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  <!-- ログインが失敗した時のメッセージ -->
+  <div class="alert alert-danger" role="alert"
+    th:if="${session['SPRING_SECURITY_LAST_EXCEPTION']} != null">
+    <strong>ログインに失敗しました: </strong>ユーザが存在しないか、パスワードが間違っています。
+  </div>
+
+<form th:action="@{/login}" method="post">
+こんにちは！<br/>
+<br/>
+ユーザID：<input type="text" name="username" /><br/>
+パスワード：<input type="password" name="password" /><br/>
+<br/>
+<input type="submit" value="認証"/>
+</form>
+</body>
+</html>
